@@ -3,13 +3,32 @@
  * Module dependencies.
  */
 
+ //Heroku MongoDB setup
+//Mongo on Heroku Setup
+var mongo = require('mongodb');
+
+var mongoUri = process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 
+  'mongodb://localhost/mydb'; 
+
+mongo.Db.connect(mongoUri, function (err, db) {
+  db.collection('mydocs', function(er, collection) {
+    collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
+    });
+  });
+});
+
+
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , GameListProvider = require('./gamelist').GameListProvider;
+
+var gameListProvider = new GameListProvider(mongoUri);
 
 var app = express();
+
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -30,8 +49,15 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//app routes
+
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/games', function(req, res){
+
+	res.render('index',{
+		title: 'Enter Games into Week' 
+	});
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
