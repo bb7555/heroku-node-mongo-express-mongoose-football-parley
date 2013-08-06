@@ -25,7 +25,6 @@ var express = require('express')
   , path = require('path')
   , GameListProvider = require('./gamelist').GameListProvider;
 
-var gameListProvider = new GameListProvider(mongoUri);
 
 var app = express();
 
