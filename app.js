@@ -1,9 +1,3 @@
-
-/**
- * Module dependencies.
- */
-
- //Heroku MongoDB setup
 //Mongo on Heroku Setup
 var mongo = require('mongodb');
 
@@ -18,7 +12,7 @@ mongo.Db.connect(mongoUri, function (err, db) {
   });
 });
 
-
+//module dependencies
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
@@ -42,6 +36,10 @@ app.use(express.session());
 app.use(app.router);
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+//instantiate data objects/models
+var gamelistProvider = new GameListProvider(mongoUri);
+
 
 // development only
 if ('development' == app.get('env')) {
