@@ -4,12 +4,9 @@ var Server = require('mongodb').Server;
 var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
-var mongoUri = process.env.MONGOLAB_URI || 
-  process.env.MONGOHQ_URL || 
-  'mongodb://localhost/mydb'; 
 
 GameListProvider = function(connection) {
-  this.db= new Db(connection, new Server(host, port, {safe: false}, {auto_reconnect: true}, {}));
+  this.db= new Db(connection, new Server(connection, {safe: false}, {auto_reconnect: true}, {}));
   this.db.open(function(){});
 };
 
