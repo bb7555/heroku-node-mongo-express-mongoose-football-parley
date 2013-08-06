@@ -8,8 +8,8 @@ var mongoUri = process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URL || 
   'mongodb://localhost/mydb'; 
 
-GameListProvider = function(host, port) {
-  this.db= new Db(mongoUri, new Server(host, port, {safe: false}, {auto_reconnect: true}, {}));
+GameListProvider = function(connection) {
+  this.db= new Db(connection, new Server(host, port, {safe: false}, {auto_reconnect: true}, {}));
   this.db.open(function(){});
 };
 
