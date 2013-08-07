@@ -2,8 +2,8 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path')
-  , GameListProvider = require('./gamelist').GameListProvider;
+  , path = require('path');
+  //, GameListProvider = require('./gamelist').GameListProvider;
 
 
 var app = express();
