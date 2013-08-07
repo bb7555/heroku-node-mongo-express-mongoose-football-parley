@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
 }
 
 //get data models
-var Gamelist = require('models/gamelist.js');
+var Gamelist = require('./models/gamelist.js');
 
 //app routes
 
