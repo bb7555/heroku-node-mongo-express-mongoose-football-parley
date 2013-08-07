@@ -3,11 +3,18 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , GameListProvider = require('./gamelist').GameListProvider;
+  , mongoose = require('mongoose');
 
+//heroku mongo connection string
+  var uristring = 
+  process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 
+  'mongodb://localhost/football-parley';
 
 var app = express();
 
+// connect to Mongo when the app initializes
+mongoose.connect(uristring);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
