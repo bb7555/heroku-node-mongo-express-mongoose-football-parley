@@ -1,11 +1,9 @@
 // The Gamelist data model
  
 var mongoose = require('mongoose')
-   ,Schema = mongoose.Schema
-   ,ObjectId = Schema.ObjectId;
+   ,Schema = mongoose.Schema;
  
 var GameListSchema = new mongoose.Schema({
-  
     homeTeam: { type: String, trim: true },
     awayTeam: { type: String, trim: true },
   	homeLine: { type: Number, min: 0},
