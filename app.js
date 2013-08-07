@@ -31,11 +31,13 @@ app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+//get data models
+var Gamelist = require('../models/gamelist.js');
 
 //app routes
 
