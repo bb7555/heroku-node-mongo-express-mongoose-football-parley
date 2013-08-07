@@ -1,16 +1,19 @@
 {
-  "name": "application-name",
+  "name": "Football-Parley",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
+  "repository": "https://github.com/bb7555/heroku-node-mongo-express-mongoose-football-parley.git",
+  "author": "Cliff Barnes",
   "dependencies": {
 
     "express": "3.3.4",
     "ejs": "*",
     "stylus": "*",
-    "mongodb" : "1.1.11"
+    "mongodb" : "1.1.11",
+    "mongoose": "3.5.7"
   },
   "engines": {
     "node": "0.10.15",

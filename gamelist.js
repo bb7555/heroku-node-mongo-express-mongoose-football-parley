@@ -1,24 +1,37 @@
-var Db = require('mongodb').Db;
-var Connection = require('mongodb').Connection;
-var Server = require('mongodb').Server;
-var BSON = require('mongodb').BSON;
-var ObjectID = require('mongodb').ObjectID;
+var mongoose = require ("mongoose");
 
-var mongoUri = process.env.MONGOLAB_URI || 
+// Here we find an appropriate database to connect to, defaulting to
+// localhost if we don't find one.  
+var uristring = 
+  process.env.MONGOLAB_URI || 
   process.env.MONGOHQ_URL || 
-  'mongodb://localhost/mydb'; 
+  'mongodb://localhost/gamelist';
 
-GameListProvider = function(mongoUri) {
-  this.db= new Db(mongoUri, new Server(mongoUri, 27017, {safe: false}, {auto_reconnect: true}, {}));
-  this.db.open(function(){});
-};
+// The http server will listen to an appropriate port, or default to
+// port 5000.
+var theport = process.env.PORT || 5000;
+
+// Makes connection asynchronously.  Mongoose will queue up database
+// operations and release them when the connection is complete.
+GameListProvider = mongoose.connect(uristring, function (err, res) {
+  if (err)GameListProvider =  { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 
-GameListProvider.prototype.getCollection= function(callback) {
-  this.db.collection('gamelists', function(error, gamelist_collection) {
-    if( error ) callback(error);
-    else callback(null, gamelist_collection);
-  });
-};
+GameListProvider.prototype.schema = new mongoose.Schema({
+  
+    homeTeam: { type: String, trim: true },
+    awayTeam: { type: String, trim: true },
+  	homeLine: { type: Number, min: 0},
+  	awayLine: {type: Number, min: 0}
+});
+
+//create our data model
+var gamelistModel = mongoose.model('gamelist', GameListProvider.schema);
+
 
 exports.GameListProvider = GameListProvider;

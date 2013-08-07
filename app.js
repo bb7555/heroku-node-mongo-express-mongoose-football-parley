@@ -24,7 +24,7 @@ app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //instantiate data objects/models
-var gamelistProvider = new GameListProvider(mongoUri);
+var gamelistProvider = new GameListProvider();
 
 
 // development only
