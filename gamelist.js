@@ -7,13 +7,11 @@ var uristring =
   process.env.MONGOHQ_URL || 
   'mongodb://localhost/gamelist';
 
-// The http server will listen to an appropriate port, or default to
-// port 5000.
-var theport = process.env.PORT || 5000;
+GameListProvider = function(){};
 
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
-GameListProvider = mongoose.connect(uristring, function (err, res) {
+mongoose.connect(uristring, function (err, res) {
   if (err)GameListProvider =  { 
     console.log ('ERROR connecting to: ' + uristring + '. ' + err);
   } else {
@@ -22,7 +20,7 @@ GameListProvider = mongoose.connect(uristring, function (err, res) {
 });
 
 
-GameListProvider.prototype.schema = new mongoose.Schema({
+var GameListSchema = new mongoose.Schema({
   
     homeTeam: { type: String, trim: true },
     awayTeam: { type: String, trim: true },
@@ -31,7 +29,7 @@ GameListProvider.prototype.schema = new mongoose.Schema({
 });
 
 //create our data model
-var gamelistModel = mongoose.model('gamelist', GameListProvider.schema);
+var gamelistModel = mongoose.model('gamelist', GameListSchema);
 
 
 exports.GameListProvider = GameListProvider;
