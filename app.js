@@ -23,8 +23,6 @@ app.use(app.router);
 app.use(require('stylus').middleware(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//instantiate data objects/models
-var gamelistProvider = new GameListProvider();
 
 
 // development only
