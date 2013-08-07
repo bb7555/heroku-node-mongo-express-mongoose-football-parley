@@ -36,8 +36,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//get data models
-var Gamelist = require('./models/gamelist.js');
+//get app controllers
+var gamelist = require('./cotrollers/gamelist.js');
 
 //app routes
 
