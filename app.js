@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
 }
 
 //get app controllers
-var gamelist = require('./cotrollers/gamelist.js');
+var gamelist = require('./controllers/gamelist.js');
 
 //app routes
 
