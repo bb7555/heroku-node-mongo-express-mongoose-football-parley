@@ -50,10 +50,5 @@ exports.delete = function(req, res){
 }
 
 exports.sort = function(req, res){
-	Gamelist
-		.find()
-		.where(week_id).equals(req.query.week_id)
-		.exec(function(err, games){
-			
-		});
+	
 }
