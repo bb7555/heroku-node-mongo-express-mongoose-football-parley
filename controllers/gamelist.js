@@ -42,9 +42,22 @@ exports.update = function(req, res){
 
 exports.delete = function(req, res){
 	Gamelist.remove(function(err){
-		Gamelist.findById(req.body._id, function(){
+		Gamelist.findById(req.query._id, function(){
 
 			res.redirect('/games/index');
 		});
 	});
+}
+
+exports.sort = function(req, res){
+	Gamelist
+		.find()
+		.where(week_id).equals(req.query.week_id)
+		.exec(function(err, games){
+		res.render('games_index', {
+			title: 'List of One Week of Games',
+			games: games
+		});
+
+			);
 }
