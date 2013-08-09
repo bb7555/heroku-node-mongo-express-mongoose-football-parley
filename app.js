@@ -47,7 +47,7 @@ app.get('/games/create', gamelist.create);
 app.post('/games/create', gamelist.save);
 app.get('/games/update', gamelist.single);
 app.post('/games/update', gamelist.update);
-app.get('games/delete', gamelist.delete);
+app.get('/games/delete', gamelist.delete);
 
 
 http.createServer(app).listen(app.get('port'), function(){
