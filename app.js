@@ -45,6 +45,8 @@ app.get('/', routes.index);
 app.get('/games/index', gamelist.list);
 app.get('/games/create', gamelist.create);
 app.post('/games/create', gamelist.save);
+app.get('/games/update', gamelist.single);
+app.post('/games/update', gamelist.update);
 
 
 http.createServer(app).listen(app.get('port'), function(){

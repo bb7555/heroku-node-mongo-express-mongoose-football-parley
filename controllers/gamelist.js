@@ -26,7 +26,7 @@ exports.save = function(req, res){
 exports.single = function(req, res){
 
 		Gamelist.findOne({'_id': req.query._id}, function(error, game){
-			res.render('game_update', {
+			res.render('games_update', {
 				title: 'Update single Gamelist entry',
 				game: game
 			});
@@ -34,9 +34,9 @@ exports.single = function(req, res){
 }
 
 exports.update = function(req, res){
-	Gamelist.update({_id: req.body._id}, {path: req.body.path, host: req.body.host}, function(){
+	Gamelist.update({_id: req.body._id}, {homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, week_id: req.body.week_id}, function(){
 
-		res.redirect('/game/index');
+		res.redirect('/games/index');
 	});
 }
 
@@ -44,7 +44,7 @@ exports.delete = function(req, res){
 	Gamelist.remove(function(err){
 		Gamelist.findById(req.body._id, function(){
 
-			res.redirect('/game/index');
+			res.redirect('/games/index');
 		});
 	});
 }
