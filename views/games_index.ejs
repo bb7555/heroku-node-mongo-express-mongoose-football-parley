@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% for(var i=0; i<games.length; i++) { %>
+    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %>
+    <% } %>
+  </body>
+</html>

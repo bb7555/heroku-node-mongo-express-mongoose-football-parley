@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/games/create" method="POST">
+    	Home Team <input name="homeTeam" /><br />
+    	Away Team <input name="awayTeam" /><br />
+    	Home Line <input name="homeLine" /><br />
+    	Away Line <input name="awayLine" /><br />
+    	Game Week <input name="week_id" /><br />
+    	<input type="submit" value="Make Game Entry" />
+    </form>
+  </body>
+</html>

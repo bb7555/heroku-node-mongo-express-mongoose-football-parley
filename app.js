@@ -42,12 +42,10 @@ var gamelist = require('./controllers/gamelist.js');
 //app routes
 
 app.get('/', routes.index);
-app.get('/games', function(req, res){
+app.get('/games/index', gamelist.list);
+app.get('/games/create', gamelist.create);
+app.post('/games/create', gamelist.save);
 
-	res.render('index',{
-		title: 'Enter Games into Week' 
-	});
-});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
