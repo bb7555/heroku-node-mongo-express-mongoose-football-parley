@@ -7,7 +7,7 @@
   <body>
     <h1><%= title %></h1>
     <% for(var i=0; i<games.length; i++) { %>
-    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %> <a href="/games/update?id=<%= games[i]._id %>">Update Game Data</a><br />
+    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %> <a href="/games/update?_id=<%= games[i]._id %>">Update Game Data</a><br />
     <% } %>
   </body>
 </html>
