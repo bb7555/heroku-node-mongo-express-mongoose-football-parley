@@ -7,14 +7,14 @@
   <body>
     <h1><%= title %></h1>
     <form action="/games/update" method="POST">
-    	<% for(var i=0; i<game.length; i++) { %>
-    	Home Team <input name="homeTeam" value="<%= game[i].homeTeam %>" /><br />
-    	Away Team <input name="awayTeam" value="<%= game[i].awayTeam %>"  /><br />
-    	Home Line <input name="homeLine" value="<%= game[i].homeLine %>"  /><br />
-    	Away Line <input name="awayLine" value="<%= game[i].awayLine %>" /><br />
-    	Game Week <input name="week_id" value="<%= game[i].week_id %>" /><br />
-    	<input type="hidden" name="_id" value="<%= game[i]._id %>" />
-    	<% } %>
+    	
+    	Home Team <input name="homeTeam" value="<%= game.homeTeam %>" /><br />
+    	Away Team <input name="awayTeam" value="<%= game.awayTeam %>"  /><br />
+    	Home Line <input name="homeLine" value="<%= game.homeLine %>"  /><br />
+    	Away Line <input name="awayLine" value="<%= game.awayLine %>" /><br />
+    	Game Week <input name="week_id" value="<%= game.week_id %>" /><br />
+    	<input type="hidden" name="_id" value="<%= game._id %>" />
+    	
     	<input type="submit" value="Make Game Entry" />
     </form>
   </body>
