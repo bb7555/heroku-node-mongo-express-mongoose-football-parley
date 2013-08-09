@@ -58,6 +58,4 @@ exports.sort = function(req, res){
 			title: 'List of One Week of Games',
 			games: games
 		});
-
-			);
 }
