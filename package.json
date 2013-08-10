@@ -13,8 +13,9 @@
     "ejs": "*",
     "stylus": "*",
     "mongodb" : "1.1.11",
-    "passport": "0.1.x",
-    "passport-local": "0.1.x" ,
+    "passport": "",
+    "passport-twitter": "",
+    "connect-ensure-login": "",
     "mongoose": "3.5.7"
   },
   "engines": {
