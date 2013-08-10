@@ -26,7 +26,7 @@ var TWITTER_CONSUMER_SECRET = "YThSFH8PJVytUF2A0gEhFUvRcAPpXLsq03fsXL6bT4";
 passport.use(new TwitterStrategy({
     consumerKey: TWITTER_CONSUMER_KEY,
     consumerSecret: TWITTER_CONSUMER_SECRET,
-    callbackURL: "http://murmuring-headland-6063.herokuapp.com/auth/twitter/callback"
+    callbackURL: "http://football-parley.herokuapp.com/auth/twitter/callback"
   },
   function(token, tokenSecret, profile, done) {
     // NOTE: You'll probably want to associate the Twitter profile with a
