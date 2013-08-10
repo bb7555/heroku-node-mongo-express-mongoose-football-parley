@@ -5,7 +5,7 @@ var express = require('express')
   , path = require('path')
   , mongoose = require('mongoose')
   , passport = require('passport')
-  , TwitterStrategy = require('passport-twitter').Strategy,
+  , TwitterStrategy = require('passport-twitter').Strategy
   , ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
 //heroku mongo connection string
