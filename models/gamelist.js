@@ -8,7 +8,9 @@ var GameListSchema = new mongoose.Schema({
     awayTeam: { type: String, trim: true },
   	homeLine: { type: Number, min: 0},
   	awayLine: {type: Number, min: 0},
-  	week_id: Number
+  	week_id: Number,
+  	winner: String,
+  	lineWinner: String
 });
  
 module.exports = mongoose.model('Gamelist', GameListSchema);
