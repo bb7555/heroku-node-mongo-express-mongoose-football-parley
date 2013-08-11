@@ -76,9 +76,13 @@ if ('development' == app.get('env')) {
 //get app controllers
 var gamelist = require('./controllers/gamelist.js');
 var userprofile = require('./controllers/userProfile.js');
+var competition = require('./controllers/competition.js');
+var ticket = require('./controllers/ticket.js');
 
 //app routes
 app.get('/', routes.index);
+
+////////games routes
 app.get('/games/index', gamelist.list);
 app.get('/games/create', gamelist.create);
 app.post('/games/create', gamelist.save);
@@ -87,7 +91,23 @@ app.post('/games/update', gamelist.update);
 app.get('/games/delete', gamelist.delete);
 app.get('/games/byWeek', gamelist.sort);
 
+///////////competition routes
+app.get('/competition/index', competition.list);
+app.get('/competition/create', competition.create);
+app.post('/competition/create', competition.save);
+app.get('/competition/update', competition.single);
+app.post('/competition/update', competition.update);
+app.get('/competition/delete', competition.delete);
 
+///////////ticets routes
+app.get('/ticket/index', ticket.list);
+app.get('/ticket/create', ticket.create);
+app.post('/ticket/create', ticket.save);
+app.get('/tickt/update', ticket.single);
+app.post('/ticket/update', ticket.update);
+app.get('/ticket/delete', ticket.delete);
+
+//////authentication routes
 app.get('/account',
   ensureLoggedIn('/login'),
   function(req, res) {
