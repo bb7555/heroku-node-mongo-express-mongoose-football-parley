@@ -88,11 +88,7 @@ app.get('/games/delete', gamelist.delete);
 app.get('/games/byWeek', gamelist.sort);
 
 
-app.get('/account',
-  ensureLoggedIn('/login'),
-  function(req, res) {
-    userprofile.check(req, res);
-  });
+app.get('/account', ensureLoggedIn('/login'), userprofile.check(req, res));
  
 app.get('/login',
   function(req, res) {
