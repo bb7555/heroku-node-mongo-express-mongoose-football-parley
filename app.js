@@ -91,7 +91,7 @@ app.get('/games/byWeek', gamelist.sort);
 app.get('/account',
   ensureLoggedIn('/login'),
   function(req, res) {
-    res.send('Hello ' + req.user.username + req.user.id + req.user.emails.value);
+    res.send('Hello ' + req.user.username + req.user.id + req.user.emails);
   });
  
 app.get('/login',
