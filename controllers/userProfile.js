@@ -1,6 +1,15 @@
 //get data models
 var UserProfile = require('../models/userProfile.js');
 
+exports.check = function(req, res){
+	UserProfile
+	.findOne({'twitter_id': req.user.id}, function(error, userprofile){
+		if(userprofile===undefined){
+			new UserProfile({twitter_id: req.user.id, username: req.user.username, email: req.user.email}).save();
+		}
+	});
+}
+
 exports.list = function(req, res){
 	UserProfile.find(function(err, userprofiles){
 		res.render('userprofiles_index', {
@@ -49,14 +58,3 @@ exports.delete = function(req, res){
 	});
 }
 
-exports.sort = function(req, res){
-	UserProfile
-		.find()
-		.where('week_id').equals(req.query.week_id)
-		.exec(function(err, userprofiles){
-			res.render('userprofiles_index', {
-				title: 'List of One Week of Games',
-				userprofiles: userprofiles
-			});
-		});
-}
