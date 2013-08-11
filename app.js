@@ -75,9 +75,9 @@ if ('development' == app.get('env')) {
 
 //get app controllers
 var gamelist = require('./controllers/gamelist.js');
+var userprofile = require('./controllers/userProfile.js');
 
 //app routes
-
 app.get('/', routes.index);
 app.get('/games/index', gamelist.list);
 app.get('/games/create', gamelist.create);
@@ -91,7 +91,7 @@ app.get('/games/byWeek', gamelist.sort);
 app.get('/account',
   ensureLoggedIn('/login'),
   function(req, res) {
-    res.render('account_index', {req:req});
+    userprofile.check(req, res);
   });
  
 app.get('/login',

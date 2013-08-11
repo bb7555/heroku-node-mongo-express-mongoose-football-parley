@@ -5,8 +5,11 @@ exports.check = function(req, res){
 	UserProfile
 	.findOne({'twitter_id': req.user.id}, function(error, userprofile){
 		if(userprofile===undefined){
-			new UserProfile({twitter_id: req.user.id, username: req.user.username, email: req.user.email}).save();
+			new UserProfile({twitter_id: req.user.id, username: req.user.username}).save();
 		}
+
+		res.render('account_index', {req:req});
+
 	});
 }
 
