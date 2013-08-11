@@ -5,8 +5,7 @@ var mongoose = require('mongoose')
  
 var userProfileSchema = new mongoose.Schema({
     twitter_id: String,
-    username: String,
-    email: String
+    username: String
 });
  
 module.exports = mongoose.model('UserProfile', userProfileSchema);
