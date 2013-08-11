@@ -4,11 +4,10 @@ var UserProfile = require('../models/userProfile.js');
 exports.check = function(req, res){
 	UserProfile
 	.findOne({'twitter_id': req.user.id}, function(error, userprofile){
-		if(userprofile===undefined){
-			new UserProfile({twitter_id: req.user.id, username: req.user.username}).save();
-		}
+		
+		new UserProfile({twitter_id: req.user.id, username: req.user.username}).save();
 
-		res.render('account_index', {req:req});
+		res.render('account_index', {req:req, userprofile:userprofile});
 
 	});
 }
