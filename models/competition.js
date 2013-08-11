@@ -1,7 +1,7 @@
 // The Gamelist data model
  
 var mongoose = require('mongoose')
-   ,Schema = mongoose.Schema;
+   , Schema = mongoose.Schema;
  
 var competitionSchema = new mongoose.Schema({
     week_id: {type:Number, ref:'Gamelist'},
@@ -9,4 +9,4 @@ var competitionSchema = new mongoose.Schema({
     line: Boolean
 });
  
-module.exports = mongoose.model('UserProfile', userProfileSchema);
+module.exports = mongoose.model('Competition', competitionSchema);
