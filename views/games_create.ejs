@@ -80,7 +80,12 @@
       </select><br />
     	Home Line <input name="homeLine" /><br />
     	Away Line <input name="awayLine" /><br />
-    	Game Week <input name="week_id" /><br />
+    	Competition Name <select name="competition_id">
+       <% for(var i=0; i<competitions.length; i+=1) { %>
+   <option value="<%= competitions[i]._id %>"><%= competitions[i].competitionName %></option>
+    <% } %>
+    </select>
+      <br />
     	<input type="submit" value="Make Game Entry" />
     </form>
   </body>

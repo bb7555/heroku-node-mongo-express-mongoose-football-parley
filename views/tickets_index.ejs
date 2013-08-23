@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <a href="/tickets/create">Enter a New Ticket</a><br /><br />
+    
+    <% for(var i=0; i<tickets.length; i++) { %>
+    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %> <a href="/tickets/update?_id=<%= games[i]._id %>">Update Ticket Data</a>  <a href="/tickets/delete?_id=<%= games[i]._id %>">Delete Ticket Data</a><br />
+    <% } %>
+  </body>
+</html>

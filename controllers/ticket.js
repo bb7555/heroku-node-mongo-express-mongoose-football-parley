@@ -42,11 +42,8 @@ exports.update = function(req, res){
 }
 
 exports.delete = function(req, res){
-	TICKET.remove(function(err){
-		TICKET.findById(req.query._id, function(){
-
-			res.redirect('/tickets/index');
-		});
+	TICKET.remove({_id:req.query._id},function(err){
+			res.redirect('/tickets/index');	
 	});
 }
 

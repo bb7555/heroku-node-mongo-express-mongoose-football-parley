@@ -4,7 +4,7 @@ var mongoose = require('mongoose')
    , Schema = mongoose.Schema;
  
 var competitionSchema = new mongoose.Schema({
-    week_id: {type:Number, ref:'Gamelist'},
+    competitionName: {type: String, ref: 'Gamelist'},
     comments: String,
     line: Boolean
 });

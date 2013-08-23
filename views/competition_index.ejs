@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <a href="/competition/create">Enter a New Competition</a><br /><br />
+    
+    <% for(var i=0; i<competitions.length; i++) { %>
+    Week Name	<%= competitions[i].competitionName %>  Line: <%= competitions[i].line %> <a href="/competition/update?_id=<%= competitions[i]._id %>">Update Competition Data</a>  <a href="/competition/delete?_id=<%= competitions[i]._id %>">Delete Competition</a><br />
+    <% } %>
+  </body>
+</html>

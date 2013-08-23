@@ -1,5 +1,6 @@
 //get data models
 var Gamelist = require('../models/gamelist.js');
+var COMPETITION = require('../models/competition.js');
 
 exports.list = function(req, res){
 	Gamelist.find(function(err, games){
@@ -11,13 +12,16 @@ exports.list = function(req, res){
 }
 
 exports.create = function(req, res){
-	res.render('games_create', {
-		title: 'Create a new Game Entry'
-	})
+	COMPETITION.find(function(err, competitions){
+		res.render('games_create', {
+			title: 'Create a new Game Entry',
+			competitions: competitions
+		});
+	});
 }
 
 exports.save = function(req, res){
-	 new Gamelist({homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, week_id: req.body.week_id}).save(function(error, docs){
+	 new Gamelist({homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, competion_id: req.body.competition_id}).save(function(error, docs){
 
 		res.redirect('/games/index');
 	});
@@ -26,9 +30,12 @@ exports.save = function(req, res){
 exports.single = function(req, res){
 
 		Gamelist.findOne({'_id': req.query._id}, function(error, game){
-			res.render('games_update', {
-				title: 'Update single Gamelist entry',
-				game: game
+			COMPETITION.find(function(err, competitions){
+				res.render('games_update', {
+					title: 'Update single Gamelist entry',
+					game: game,
+					competitions: competitions
+				});
 			});
 		});
 }
@@ -41,11 +48,10 @@ exports.update = function(req, res){
 }
 
 exports.delete = function(req, res){
-	Gamelist.remove(function(err){
-		Gamelist.findById(req.query._id, function(){
+	Gamelist.remove({_id: req.query._id},function(err){
 
 			res.redirect('/games/index');
-		});
+		
 	});
 }
 

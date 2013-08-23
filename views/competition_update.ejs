@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/competition/update" method="POST">
+    Competition Name: <input name="competitionName" value="<%= competition.competitionName %>" /><br />
+  
+    Line: <select name="line">
+    <option value="true" <% if(competition.line === true) {%>selected="selected"<% } %>>true</option>
+    <option value="false" <% if(competition.line === false) {%>selected="selected"<% } %>>false</option>
+    </select><br />
+    Comments: <textarea name="comments"><%= competition.comments %></textarea><br />
+    <input type="submit" value="Create New Competition" />
+    </form>
+  </body>
+</html>

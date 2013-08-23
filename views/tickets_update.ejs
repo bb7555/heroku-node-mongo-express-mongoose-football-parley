@@ -12,12 +12,7 @@
     	Away Team <input name="awayTeam" value="<%= game.awayTeam %>"  /><br />
     	Home Line <input name="homeLine" value="<%= game.homeLine %>"  /><br />
     	Away Line <input name="awayLine" value="<%= game.awayLine %>" /><br />
-    	Competition Name <select name="competition_id">
-       <% for(var i=0; i<competitions.length; i+=1) { %>
-   <option <% if(game.competition_id === competitions[i].competion_id){ %>selected="selected"<% } %>value="<%= competitions[i]._id %>"><%= competitions[i].competitionName %></option>
-    <% } %>
-    </select>
-      <br />
+    	Game Week <input name="week_id" value="<%= game.week_id %>" /><br />
     	<input type="hidden" name="_id" value="<%= game._id %>" />
     	
     	<input type="submit" value="Make Game Entry" />
