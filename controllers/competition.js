@@ -17,7 +17,9 @@ exports.create = function(req, res){
 }
 
 exports.save = function(req, res){
-	 new COMPETITION({week_id: req.body.week_id, line: req.body.line, comments: req.body.comments, competitionName: req.body.competitionName}).save(function(error, docs){
+	var lineVar = req.body.line
+	if(lineVar === "True"){lineVar = true;}else{lineVar = false;}
+	 new COMPETITION({week_id: req.body.week_id, line: lineVar, comments: req.body.comments, competitionName: req.body.competitionName}).save(function(error, docs){
 		res.redirect('/competition/index');
 	});
 }
@@ -33,7 +35,9 @@ exports.single = function(req, res){
 }
 
 exports.update = function(req, res){
-	COMPETITION.update({_id: req.body._id}, {homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, week_id: req.body.week_id}, function(){
+	var lineVar = req.body.line
+	if(lineVar === "True"){lineVar = true;}else{lineVar = false;}
+	COMPETITION.update({_id: req.body._id}, {week_id: req.body.week_id, line: lineVar, comments: req.body.comments, competitionName: req.body.competitionName}, function(){
 
 		res.redirect('/competition/index');
 	});

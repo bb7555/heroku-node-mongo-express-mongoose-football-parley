@@ -4,7 +4,7 @@ var mongoose = require('mongoose')
    , Schema = mongoose.Schema;
  
 var competitionSchema = new mongoose.Schema({
-    competitionName: {type: String, ref: 'Gamelist'},
+    competitionName: {type: String, ref: 'Gamelist', ref:'Ticket'},
     comments: String,
     line: Boolean
 });

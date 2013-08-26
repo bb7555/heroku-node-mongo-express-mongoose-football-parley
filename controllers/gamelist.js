@@ -21,14 +21,13 @@ exports.create = function(req, res){
 }
 
 exports.save = function(req, res){
-	 new Gamelist({homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, competion_id: req.body.competition_id}).save(function(error, docs){
-
+	new Gamelist({competition_name: req.body.competition_name, homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine}).save(function(error, docs){
+ 
 		res.redirect('/games/index');
 	});
 }
 
 exports.single = function(req, res){
-
 		Gamelist.findOne({'_id': req.query._id}, function(error, game){
 			COMPETITION.find(function(err, competitions){
 				res.render('games_update', {
@@ -41,17 +40,14 @@ exports.single = function(req, res){
 }
 
 exports.update = function(req, res){
-	Gamelist.update({_id: req.body._id}, {homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, week_id: req.body.week_id}, function(){
-
+	Gamelist.update({homeTeam: req.body.homeTeam, awayTeam: req.body.awayTeam, homeLine: req.body.homeLine, awayLine: req.body.awayLine, competion_id: req.body.competition_id}, function(){
 		res.redirect('/games/index');
 	});
 }
 
 exports.delete = function(req, res){
 	Gamelist.remove({_id: req.query._id},function(err){
-
-			res.redirect('/games/index');
-		
+			res.redirect('/games/index');		
 	});
 }
 

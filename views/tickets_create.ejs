@@ -6,8 +6,19 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <form action="/tickets/create" method="POST">
-    	
+    <form action="/ticket/create" method="POST">
+      <input type="hidden" value="<%= competition.competitionName %>" name="competition"  />
+      Games:   AWAY   |    HOME<br /><br />
+    	<% for(var i=0; i<(games.length); i+=1) { %>
+        Game <%= i+1 %>: <%= games[i].awayTeam %>+<%= games[i].awayLine %> vs. <%= games[i].homeTeam %>+<%= games[i].homeLine %>
+        <input type="hidden" value="<%= games[i]._id %>" name="game<%= i+1 %>game_id"  />
+        <select name="game<%= i+1 %>pick">
+          <option>away</option>
+          <option>home</option>
+        </select>
+        <br /> 
+      <% } %>
+      Over/Under Total: <input name="overUnder" /><br />
     <input type="submit" value="Submit Ticket" />
     </form>
   </body>

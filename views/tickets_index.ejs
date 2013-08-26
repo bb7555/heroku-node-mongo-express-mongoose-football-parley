@@ -6,10 +6,14 @@
   </head>
   <body>
     
-    <a href="/tickets/create">Enter a New Ticket</a><br /><br />
+    <% for(var i=0; i<competitions.length; i+=1) { %>
+
+    <a href="/ticket/create?_id=<%= competitions[i].competitionName %>">Select a Ticket for <%= competitions[i].competitionName %></a><br />
+
+    <% } %><br /><br />
     
-    <% for(var i=0; i<tickets.length; i++) { %>
-    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %> <a href="/tickets/update?_id=<%= games[i]._id %>">Update Ticket Data</a>  <a href="/tickets/delete?_id=<%= games[i]._id %>">Delete Ticket Data</a><br />
+    <% for(var i=0; i<tickets.length; i+=1) { %>
+    	<%= tickets[i]._id %> <a href="/ticket/update?_id=<%= tickets[i]._id %>">Update Ticket Data</a>  <a href="/ticket/delete?_id=<%= tickets[i]._id %>">Delete Ticket Data</a><br />
     <% } %>
   </body>
 </html>

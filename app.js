@@ -106,6 +106,7 @@ app.post('/ticket/create', ticket.save);
 app.get('/tickt/update', ticket.single);
 app.post('/ticket/update', ticket.update);
 app.get('/ticket/delete', ticket.delete);
+app.get('/ticket/breakdown', ticket.breakdown);
 
 //////authentication routes
 app.get('/account',

@@ -9,7 +9,7 @@
     <a href="/games/create">Enter a New Game Entry</a><br /><br />
     <a href="/games/byWeek?week_id=-3">View Pre-season Week Three</a><br /><br />
     <% for(var i=0; i<games.length; i++) { %>
-    	<%= games[i].awayTeam %> vs. <%= games[i].homeTeam %> <a href="/games/update?_id=<%= games[i]._id %>">Update Game Data</a>  <a href="/games/delete?_id=<%= games[i]._id %>">Delete Game Data</a><br />
+    	<%= games[i].awayTeam %>+<%= games[i].awayLine %> vs. <%= games[i].homeTeam %>+<%= games[i].homeLine %> | Competition: <%= games[i].competition_name %> | <a href="/games/update?_id=<%= games[i]._id %>">Update Game Data</a>  <a href="/games/delete?_id=<%= games[i]._id %>">Delete Game Data</a><br />
     <% } %>
   </body>
 </html>

@@ -4,11 +4,12 @@ var mongoose = require('mongoose')
    ,Schema = mongoose.Schema;
  
 var GameListSchema = new mongoose.Schema({
-    homeTeam: { type: String, trim: true, ref:'Ticket' },
-    awayTeam: { type: String, trim: true, ref:'Ticket' },
-  	homeLine: { type: Number, min: 0, ref:'Ticket'},
-  	awayLine: {type: Number, min: 0, ref:'Ticket'},
-  	competition_id: {type:Schema.Types.ObjectId, ref:'Competition'},
+    homeTeam: { type: String, trim: true },
+    awayTeam: { type: String, trim: true },
+  	homeLine: { type: Number, min: 0 },
+  	awayLine: {type: Number, min: 0 },
+  	competition: {type:Schema.Types.ObjectId, ref:'Competition'},
+  	competition_name: String,
   	winner: String,
   	lineWinner: String
 });
