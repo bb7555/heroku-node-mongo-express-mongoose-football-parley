@@ -15,6 +15,7 @@
         Game <%= i+1 %>: <%= games[i].awayTeam %>+<%= games[i].awayLine %> vs. <%= games[i].homeTeam %>+<%= games[i].homeLine %>
         
         <select name="game<%= i+1 %>">
+          <option></option>
           <option>away</option>
           <option>home</option>
         </select>
@@ -22,7 +23,7 @@
       <% } %>
       Over/Under Total: <input name="overUnder" /><br />
 
-      <input type="submit" value="Make Game Entry" />
+      <input type="submit" value="Update Competion Winners" />
     </form>
   </body>
 </html>
