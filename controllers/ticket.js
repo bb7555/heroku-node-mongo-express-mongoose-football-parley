@@ -78,5 +78,7 @@ exports.delete = function(req, res){
 
 
 exports.breakdown = function(req, res){
-
+	RESOLVE.findOne({'competition':req.query._id}, function(error, resolver){
+		
+	});
 }
