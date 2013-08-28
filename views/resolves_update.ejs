@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/resolve/update" method="POST">
+      
+      <h2>Winners/Scores for <%= resolves.competition %></h2>
+      
+      Games:   AWAY   |    HOME<br /><br />
+      <% for(var i=0; i<(games.length); i+=1) { %>
+        Game <%= i+1 %>: <%= games[i].awayTeam %>+<%= games[i].awayLine %> vs. <%= games[i].homeTeam %>+<%= games[i].homeLine %>
+        
+        <select name="game<%= i+1 %>">
+          <option>away</option>
+          <option>home</option>
+        </select>
+        <br /> 
+      <% } %>
+      Over/Under Total: <input name="overUnder" /><br />
+
+      <input type="submit" value="Make Game Entry" />
+    </form>
+  </body>
+</html>

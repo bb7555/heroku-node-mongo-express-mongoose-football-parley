@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/resolve/create" method="POST">
+     
+     <select name="competition">
+    	<% for(var i=0; i<(competitions.length); i+=1) { %>
+       
+        
+          <option><%= competitions[i].competitionName %></option>      
+        
+      <% } %>
+      </select>
+        <br /> <br />
+    <input type="submit" value="Create Competition Resolver" />
+    </form>
+  </body>
+</html>

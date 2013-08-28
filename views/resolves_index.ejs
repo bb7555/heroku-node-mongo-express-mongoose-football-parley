@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    
+
+    <a href="/resolve/create">Create A New Competition Resolver</a><br />
+
+    <br /><br />
+    
+    <% for(var i=0; i<resolves.length; i+=1) { %>
+    	<%= resolves[i].competition %> <a href="/resolve/update?_id=<%= resolves[i].competition %>">Update Resolver Game Scores</a>  <a href="/resolve/delete?_id=<%= resolves[i]._id %>">Delete Resolver</a><br />
+    <% } %>
+  </body>
+</html>

@@ -78,6 +78,7 @@ var gamelist = require('./controllers/gamelist.js');
 var userprofile = require('./controllers/userProfile.js');
 var competition = require('./controllers/competition.js');
 var ticket = require('./controllers/ticket.js');
+var resolve = require('./controllers/resolve.js');
 
 //app routes
 app.get('/', routes.index);
@@ -107,6 +108,16 @@ app.get('/tickt/update', ticket.single);
 app.post('/ticket/update', ticket.update);
 app.get('/ticket/delete', ticket.delete);
 app.get('/ticket/breakdown', ticket.breakdown);
+
+////////////resolver routes
+app.get('/resolve/index', resolve.list);
+app.get('/resolve/create', resolve.create);
+app.post('/resolve/create', resolve.save);
+app.get('/resolve/update', resolve.single);
+app.post('/resolve/update', resolve.update);
+app.get('/resolve/delete', resolve.delete);
+
+
 
 //////authentication routes
 app.get('/account',
